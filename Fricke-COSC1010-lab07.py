@@ -114,7 +114,7 @@ while True:
         if operator == '+':
             answer = n1 + n2
         elif operator == '-':
-            answer = n1 + n2
+            answer = n1 - n2
         elif operator == '*':
             answer = n1 * n2
         elif operator == '/':
