@@ -1,9 +1,9 @@
-# Your Name Here
+# Oliver Fricke
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# 11-3-24
+# Lab 07
+# Lab Section: 13
+# Sources, people worked with, help given to: N/A
 # your
 # comments
 # here
@@ -17,9 +17,32 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+
+def factorial(n):
+    if n < 0:
+        return "Please enter a positive integer."
+    elif n == 0:
+        return 1
+    else:
+        result = 1
+        for i in range(1, n+1):
+            result *= n
+            n -= 1
+        return result
+    
+while True:
+    try:
+        number = int(input("Give an upper bound for a factorial: "))
+        if number >= 0:
+            break
+        else:
+            print("Please enter a positive integer.")
+    except ValueError:
+        print("Please enter a positive integer.")
+
+
+print(f"The result of the factorial based on the given bound is {factorial(number)}")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
@@ -38,6 +61,17 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
+
+while True:
+    userinput = input("Enter an integer, or type 'exit' to leave: ")
+
+    if userinput.lower() == 'exit':
+        break
+    try: 
+        num = int(userinput)
+        num_sum += num
+    except ValueError:
+        print("Please enter an integer.")
 
 print(f"Your final sum is {num_sum}")
 
@@ -58,5 +92,39 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+
+
+while True:
+    calcinput = input("Enter calculation (i.e. 11 + 42), or type 'exit' to leave: ")
+
+    calcinput = input().strip()
+    if calcinput.lower() == 'exit':
+        break
+
+    spl = calcinput.split()
+
+    if len(spl) != 3:
+        print("Invalid")
+        continue
+    operand1, operator, operand2 = spl
+    try:
+        n1 = int(operand1)
+        n2 = int(operand2)
+
+        if operator == '+':
+            answer = n1 + n2
+        elif operator == '-':
+            answer = n1 + n2
+        elif operator == '*':
+            answer = n1 * n2
+        elif operator == '/':
+            answer = n1 / n2
+        else:
+            print("Invalid")
+            
+        print(answer)
+    except ValueError:
+        print("Invalid")
+
 
         
